@@ -12,8 +12,10 @@ ap.add_argument("-e", "--testing", required=True, help="path to the testing imag
 #python recognize.py -training images/training  -testing images/testing
 # --traing 다음 경로, --testing 다음 경로
 args = vars(ap.parse_args())
-#args("training"]
-#args 안에 저장
+#args["training"] : --training 다음 경로 저장
+#args["testing"] : --testing 다음에 입력된 경로 저장
+#args 안에 저장 
+
 
 
 
@@ -38,6 +40,7 @@ for imagePath in paths.list_images(args["training"]):
 # GridSearch C 값, ~~~
 # model = LinearSVC(C=0.1, random_state=42)
 model = LinearSVC(C=100, max_iter=15000, random_state=42)
+print(labels)
 model.fit(data, labels)
 
 # 테스트 이미지를 순회합니다.
